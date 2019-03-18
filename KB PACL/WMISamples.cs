@@ -80,21 +80,40 @@ namespace KB_PACL
                 job.Cancel();
             }
         }
-    static void Main(string[] args)
+        private static void CsharpAPI2()
+        {
+            var server = new PrintServer();
+            var queues = server.GetPrintQueues(new[] { EnumeratedPrintQueueTypes.Local, EnumeratedPrintQueueTypes.Connections });
+            foreach (var queue in queues)
+            {
+                string printerName = queue.Name;
+                string printerPort = queue.QueuePort.Name;
+                
+                Console.WriteLine(printerName);
+                Console.WriteLine(printerPort);
+                
+            }
+          
+        }
+        static void Main(string[] args)
         {
             while (true)
            {
-                Console.WriteLine("getRegisty----------");
-                getRegistrySample();
-                Console.WriteLine("WMICount----------");
-                WMICount();
-                Console.WriteLine("WMISample1----------");
-                WMISample1();
-                Console.WriteLine("WMISample2----------");
-                WMISample2();
+                //Console.WriteLine("getRegisty----------");
+                //getRegistrySample();
+                //Console.WriteLine("WMICount----------");
+                //WMICount();
+                //Console.WriteLine("WMISample1----------");
+                //WMISample1();
+                //Console.WriteLine("WMISample2----------");
+                //WMISample2();
 
-                //WIN32 말고 C# API를 이용하자.
-                CsharpAPI();
+                ////WIN32 말고 C# API를 이용하자.
+                //Console.WriteLine("CsharpAPI1----------");
+                //CsharpAPI();
+
+                Console.WriteLine("CsharpAPI2----------");
+                CsharpAPI2();
 
 
                 // 마지막에 항상 추가, 빌드방법 Windows Application 으로 변경
