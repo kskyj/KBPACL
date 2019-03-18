@@ -96,6 +96,7 @@ namespace KB_PACL
                 //WIN32 말고 C# API를 이용하자.
                 CsharpAPI();
 
+
                 // 마지막에 항상 추가, 빌드방법 Windows Application 으로 변경
                 GC.Collect();
             }
